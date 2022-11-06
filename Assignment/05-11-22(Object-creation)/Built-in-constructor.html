@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built in construction</title>
+</head>
+<body>
+    <h3>built in construction</h3>
+    <script>
+
+        // built in construction
+        var persion=new Object({Name:"Raviteja",Email:"Raviteja@gmail.com",});
+         
+        //using .Notation also
+        persion.city="katrenipadu"
+
+
+        // using [] Notation also
+          persion["district"]="Eluru"
+
+
+        document.write(persion.Name+"<br>"+persion.city+"<br>"+persion.district+"<br> <hr>  ")
+
+        var persion2=new Object({name:"gayathri",Email:"gayathri@gmail.com",Number:"1431452312",addres:"janam"});
+       for(g in persion2){
+        document.write(g+" : "+persion2[g]+"<br> <br>")
+       }
+          
+       var persion3=new Object({name:"nikhil",number:"1234567891",adress:"janam",Email:"nikhil",district:"eluru"});
+       for(n in persion3){
+        if(n !=="number")
+        document.write(n+" : "+persion3[n]+'<br>')
+       }
+
+    </script>
+</body>
+</html>

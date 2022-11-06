@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic function</title>
+</head>
+<body>
+    <script>
+        // syntax for function
+         function hello(){}
+
+            // type-1 basic
+function hello(){
+    console.log("my name is Raviteja")
+    document.write("this is method 1<br><br>")
+}
+hello()
+        //  type-2 function adding on variable
+    
+               var persion1=function(){
+               
+                   console.log("function second method")
+                   document.write("this is a second method for unanimous function <br><br>")
+               }
+               persion1()
+
+            //    type-3 var name and function name 
+
+
+            function first(){
+                console.log("this is type -3  in fuction")
+                document.write("this is an third type for functions<br>")
+            }
+              var second=first
+           first()
+           second()
+                        //    Repeat
+
+                   function third(){
+                       console.log("this is repeating")
+                       document.write("it is is repeating <br>")
+                   }
+                   var fourth=third
+                     third()
+                     fourth()
+
+                    //   function method appllying in objets
+               
+                    var details1={
+                        name:"Raviteja",
+                        email:"ravi@gmail.com",
+                        number:70758804466,
+                        fullname:function(){
+                            document.write(details1.name+"<br>"+this.number+"<br>"+this.city+"<br>"+this.km)
+                        }
+                    };
+                    details1.city="vijayawada"
+                    details1["km"]=25
+                    details1.fullname()
+
+            // full property displaying using objects
+             
+            // console.log(this)
+                var details2={
+                    name:"karthik",
+                    number:1234567891,
+                    email:"karthik2gmail.com",
+                      fullname2:function(){
+                        console.log(this)
+                        // document.write(this.name+"<hr>"+this.number+"<hr>")
+                      }
+                        
+                    };
+    
+         
+                    details2.fullname2()   
+
+
+    </script>
+</body>
+</html>             

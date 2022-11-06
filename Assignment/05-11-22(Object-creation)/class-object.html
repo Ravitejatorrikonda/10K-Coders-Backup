@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        class persion{
+            constructor(name,email,number,address){
+                this.Name=name;
+                this.Email=email;
+                this.Number=number;
+                this.Address=address;
+            }
+        }
+          var persion1=new persion("Ravi","Ravi@gmail.com","7075880446","katrenipadu");
+        //   console.log(persion1)
+           for(a in persion1){
+             document.write(a+" : "+persion1[a]+"<br>")
+          }
+    </script>
+</body>
+</html>

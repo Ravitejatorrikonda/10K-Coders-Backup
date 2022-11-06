@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literalway</title>
+</head>
+<body>
+    <h2>Literal Way</h2>
+    <script>
+        // this is "Literal"way object
+
+
+
+        var persion={
+            Name:"Raviteja",
+            Email:"raviteja@gmail.com",
+            Number:7075880446,
+            secondname:"",
+            thirdname:null
+
+            
+        };
+         persion.City="Katrenipadu";
+         persion.Mandal="musunuru";
+         persion["district"]="Eluru"
+        // document.write("name :"+persion.Name+"<br> email :"
+        // +persion.Email+"<br> number :"
+        // +persion.Number+"<br> city : "
+        // +persion.City+"<br> mandal :"
+        // +persion.Mandal+"<br> district :"
+        // +persion.district+"<br> <hr>")
+
+        for(r in persion){
+
+            // using for(r !=="Mandal") mandal can not display in docment
+            if(r !=="Mandal")
+
+            document.write(r+" : "+persion[r]+"<br>")
+        }
+    </script>
+    <h3>using for(r !=="Mandal")</h3>
+</body>
+</html>

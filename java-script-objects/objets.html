@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var persion={
+        };
+        console.log(persion)
+        var persion2={
+               Myname:"Raviteja",
+               Email:"ravitejatorrikonda@gmail.com",
+               mobile:7075880446
+        };
+        console.log(persion2)
+
+
+        let persion3={
+            name:"nikhil",
+            Email:"nikhil@gmail.com",
+            Number:"1234598764"
+        };
+        console.log(persion3)
+
+
+        const persion4={
+                name:"gayathri",
+                email:"gayathri@gmail.com",
+                number:7075880446
+        };
+        console.log(persion4)
+        
+        // adding a property with . notation
+
+        var persion_5={
+            name:"",
+            Myname:"karthik",
+            Email:"karthik@gmail.com",
+            number:7687689777
+        };
+        persion_5.city="bangalore"
+        persion_5.Myname="karthik-1"
+        persion_5.date="03/11/22"
+        persion_5.rollnumber=974479
+        console.log(persion_5)
+
+
+
+        var persion6={
+            myname:"kusuma",
+            email:"kusuma@gmail.com",
+            mobile:7207531618
+        };
+        var mobile=123456789
+        var language=""
+        persion6.number=mobile;
+        persion6.coloumn=language;
+        persion3.language="telugu"
+        console.log(persion6)
+
+// adding a property with [] notation
+
+
+        var persion7={
+            name:"wadayar",
+            email:"wadayar@gamail.com",
+            mobile:7627863715
+        };
+        let name1=""
+        persion7["city"]="banglore"
+        persion7["myname"]=""
+        persion7["language"]="english"
+        console.log(persion7)
+
+        var persion8={
+            name:"wadayar",
+            email:"wadayar@gamail.com",
+            mobile:7627863715
+        };
+        document.write(persion2.Myname+"<br>"+persion2.Email+"<br>"+persion2.number+"<br>"+persion2.mobile+"<br>")
+
+        document.write(persion4.name+"<br>"+persion4.email+"<br>"+persion4.number+"<br>")
+        document.write("name : "+persion3.name+"<br> Email : "+persion3.Email+'<br> Number : '+persion3.number+"<br>")
+
+        document.write("name : "+   persion6.myname+"<br Email : >"+persion6.email+"<br mobile : >"+persion6.mobile+"<br>")
+
+
+        var persion9={
+            myname:"kusuma",
+            email:"kusuma@gmail.com",
+            mobile:7207531618
+        };
+        var mobile=123456789
+        var language=""
+        persion9.number=mobile;
+        persion9.coloumn=language;
+        persion9.language="telugu"
+
+        for (a in persion9){
+            console.log(a)
+        }
+
+
+
+        var persion6={
+            myname:"kusuma",
+            email:"kusuma@gmail.com",
+            mobile:7207531618
+        };
+        var mobile=123456789
+        var language=""
+        persion6.number=mobile;
+        persion6.coloumn=language;
+        persion3.language="telugu"
+        
+       for(a in persion9){
+        document.write(a+":"+persion9[a]+"<br>  ")
+       }
+
+    </script>
+
+</body>
+</html>

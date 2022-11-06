@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        function persion(name,email,number,adress){
+            this.name=name;
+            this.Email=email;
+            this.number=number;
+            this.adress=adress
+        }
+        var persion1=new persion("ravi","raviteja@gemail.com",123457891,"katrenipadu");
+        
+        for(a in persion1){
+            if(a !=="name")
+            document.write(a+" : "+persion1[a]+"<br> <br>")
+        }
+        function persion(n,number,a,e){
+            this.Name=n;
+            this.Number=number;
+            this.Address=a;
+            this.Email=e
+        }
+        var persion11=new persion("gayathri",1431357974,"janam","gayathrigmail.com")
+        for(a in persion11){
+            document.write(a+" : "+persion11[a]+'<br>')
+        }
+    </script>
+</body>
+</html>

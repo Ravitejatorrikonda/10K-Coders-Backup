@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forinloop</title>
+</head>
+<body>
+    <script>
+
+        // only property name in console & web browser
+
+
+       var persion1={
+        name:"ravi",
+        email:'ravi@gmail.com',
+        Number:12344567891
+       };
+              for(a in persion1){
+                console.log(a)
+                document.write("<hr>"+a+"<br>")
+              }
+
+    //  in console print both property name&property value
+
+              var persion2={
+                name:"nikhil",
+                secondname:"karthik",
+                email:"kar@gamail.com",
+                Number:1234567891
+              };
+              for(r in persion2){
+                console.log(r+" : "+persion2[r])
+              }
+// displaying property name & property value in "web browser"
+
+var persion3={
+    name:"ravi3",
+    rollnum:"20",
+    Number:1431234567,
+    email:"ravi3@gmail.com"
+};
+   for(g in persion3){
+    document.write(g+" : "+persion3[g]+"<br>")
+   }
+
+    </script>
+</body>
+</html>
