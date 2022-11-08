@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var players = ["msd", "Raina", "jaddu"];
+
+        for (i = 0; i < players.length; i++) {
+            document.write(players[i] + "<br>")
+        }
+
+        // push method
+
+        var csk = ["msd", "Raina", "jaddu", "Rayudu"];
+        csk.push("chahar-using push ")  //adding value on last
+        for (i = 0; i < csk.length; i++) {
+            document.write(csk[i] + "<br>")
+        }
+        // unshift
+        var rcb = ["virat", "abd", "umesh"];
+        rcb.unshift("DK using unshift method")  //adding file on first
+
+        for (i = 0; i < rcb.length; i++) {
+            document.write(rcb[i] + "<br>")
+        }
+        //  splice
+        var mumbai = ["rohit", "sky", "ishan", "timdavid", "sanjay"];
+
+        mumbai.splice(3, 0, "bumrah using splice ")  // replacing or merge tha value
+        //  mumbai.splice(2,1,"bolt")
+        //  eliminating one index
+
+        // mumbai.splice(3,2,"bolt")
+        // eliminating tow values
+        for (i = 0; i < mumbai.length; i++) {
+            document.write("<hr>" + mumbai[i] + "<br> <hr>")
+        }
+        // pop
+
+        var panjab = ["rahul", "cris", "tivathi", "archer", "maxwell"];
+        panjab.pop()  //removing last value
+        for (i = 0; i < panjab.length; i++) {
+            document.write(panjab[i] + "<br>")
+        }
+
+        // shift
+        var delhi = ["dawan", "pant", "iyear", "warner", "shaw"];
+
+        delhi.shift()   //removing first value
+        for (i = 0; i < delhi.length; i++) {
+            document.write(delhi[i] + "<br> <hr>")
+        }
+
+        // splice index value removing
+        var hyd = ["wiiiamson", "natarajam", "umranmalik", "bhuvneswar"];
+
+        hyd.splice(2, 1)   //displaying index value in particular position
+        for (i = 0; i < hyd.length; i++) {
+            document.write(hyd[i] + "<br>")
+        }
+        // sort
+        var kkr = ["narayan", "dk", "rasuell", "bhuvneswar"];
+
+        kkr.sort()   // arranging alphabetical order
+        for (i = 0; i < kkr.length; i++) {
+            document.write(kkr[i] + "<br> <hr>")
+        }
+        // reverse
+
+        var rr = ["narayan", "dk", "rasuell", "bhuvneswar"];
+
+        rr.reverse()   // arranging revrse order
+        for (i = 0; i < rr.length; i++) {
+            document.write(rr[i] + "<br>")
+        }
+
+        // adding for each
+
+        var favplayers = ["msd", "Raina", "jaddu", "Rayudu"];
+        favplayers.forEach((players,index,arr   )=>{
+            document.write(arr+"<br>")
+        })
+
+        var favplayers2 = ["msd", "Raina", "jaddu", "Rayudu"];
+        favplayers2.forEach((play,index,arr)=>{
+            document.write(index+"<br>")
+        })
+
+    </script>
+</body>
+
+</html>
