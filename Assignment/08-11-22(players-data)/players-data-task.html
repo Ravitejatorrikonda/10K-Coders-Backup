@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var indiaplayers = [
+            {
+                name: "Rahul",
+                runs: 50,
+                fours: 0,
+                sixes: 4,
+                SR: 156.33
+            },
+
+            {
+                name: "Rohit",
+                runs: 2,
+                fours: 0,
+                sixes: 0,
+                SR: 25.34
+            },
+            {
+                name: "kholi",
+                runs: 64,
+                fours: 8,
+                sixes: 1,
+                SR: 145.45
+            },
+            {
+                name: "sky",
+                runs: 30,
+                fours: 4,
+                sixes: 0,
+                SR: 187.50
+            },
+            {
+                name: "Hardik",
+                runs: 2,
+                fours: 0,
+                sixes: 0,
+                SR: 83.33
+            },
+        ];
+
+        // total runs
+
+        var totalruns = indiaplayers.reduce((r, g) => {
+            if (r.runs) {
+                return r.runs + g.runs
+            } else {
+                return r + g.runs
+            }
+        });
+        document.write("total runs :" + totalruns + "<br>")
+
+        // total fours
+
+        var totalfours = indiaplayers.reduce((r, g) => {
+            if (r.fours == 0) {
+                return r.fours + g.fours
+
+            } else if (r.fours) {
+                return r.fours + g.fours
+            }
+
+            else {
+                return r + g.fours
+            }
+        });
+
+        document.write("total fours :" + totalfours + "<br>")
+
+        // total sixes
+
+        var totalsixes = indiaplayers.reduce((r, g) => {
+            if (r.sixes ==0) {
+                return r.sixes + g.sixes
+            } else if(r.sixes) {
+
+                return r.sixes+ g.sixes
+            }else{
+                return r+g.sixes
+            }
+
+        });
+        document.write("total sixes :" + totalsixes + "<br> <br>")
+
+
+        //  lowest run players
+
+        var lowestruns = indiaplayers.reduce((r, g) => {
+            if (Object.values(r).length > 0) {
+                return Math.min(r.runs, g.runs);
+            } else {
+                return Math.min(r, g.runs);
+            }
+        });
+
+
+
+        var lowestplayers = indiaplayers.filter((player) => {
+            return player.runs == lowestruns
+
+        })
+        lowestplayers.forEach((player) => {
+            document.write("lowest run players :" + player.name + "<br>")
+        });
+        document.write("lowest score is :" + lowestruns + "<br> <br>")
+
+
+        //  highest runs players
+
+        var highestruns = indiaplayers.reduce((r, g) => {
+            if (Object.values(r).length > 0) {
+                return Math.max(r.runs, g.runs);
+            } else {
+                return Math.max(r, g.runs);
+            }
+        });
+
+
+        var highplayers = indiaplayers.filter((player) => {
+            return player.runs == highestruns
+        });
+
+        highplayers.forEach((player) => {
+            document.write("highest player names :" + player.name + "<br>")
+        })
+        document.write(" highest score :" + highestruns + "<br> <br>")
+
+
+        // lowest strike rate
+
+        var lowstrike = indiaplayers.reduce((r, g) => {
+            if (Object.values(r).length > 0) {
+                return Math.min(r.SR, g.SR);
+            } else {
+                return Math.min(r, g.SR);
+            }
+        });
+        var lowestSR = indiaplayers.filter((player) => {
+            return player.SR == lowstrike
+        });
+
+        lowestSR.forEach((player) => {
+            document.write("low strike rate player :"+player.name+"<br>")
+        });
+        document.write("lowest strike rate :"+lowstrike+"<br> <br>")
+
+
+        //   highest strike rate
+
+         var highstrike=indiaplayers.reduce((r,g)=>{
+            if(Object.values(r).length>0){
+                return Math.max(r.SR,g.SR);
+            }else{
+                return Math.max(r,g.SR);
+            }
+         });
+
+         var highSR=indiaplayers.filter((player)=>{
+            return player.SR == highstrike
+         });
+         highSR.forEach((player)=>{
+            document.write(" highest strike rate player :"+player.name+"<br>")
+         })
+         document.write("highest strike rate :"+highstrike+"<br> <br>")
+    </script>
+</body>
+
+</html>
