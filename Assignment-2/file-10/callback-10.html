@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback-10</title>
+</head>
+<body>
+    <button onclick="grtData()">get Data</button>
+    <ul></ul>
+    <script>
+        var bikedata=[]
+        function grtData(){
+            var newUser=new XMLHttpRequest()
+            newUser.onreadystatechange=function(){
+                if(newUser.readyState==4&&newUser.status==200){
+                    bikedata=JSON.parse(newUser.response)
+                    console.log(bikedata);
+                    allBikeData(bikedata)
+                    
+                }
+            }
+            newUser.open("GET","https://community-citybikes.p.rapidapi.com/valenbisi.json")
+            newUser.setRequestHeader("X-RapidAPI-Key","1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            newUser.setRequestHeader("X-RapidAPI-Host","community-citybikes.p.rapidapi.com")
+            newUser.send();
+        }
+        function allBikeData(bikedata){
+            // console.log(bikedata)
+            bikedata.forEach((element) => {
+                // console.log(element)
+                for(a in element){
+                    // console.log(element[a])
+                    if(a=="name"){
+                        console.log(a+" : "+element[a])
+                        var myLi=document.createElement("li")
+                        myLi.innerHTML=(a+" : "+element[a])
+                        document.querySelector("ul").appendChild(myLi)
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file-1</title>
+    <style>
+        /* .left ul {
+           margin-left: 40%;
+        } */
+
+        /* .right ul{
+            margin-left: 40%;
+        } */
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- callback -->
+
+    <button onclick="getData()">Completed Matches</button>
+    <!-- <button onclick="getcurrentData()">Current Matches</button> -->
+    <!-- <button onclick="upcoming()">Upcoming</button> -->
+    <div class="left">
+        <ul></ul>
+    </div>
+    <div class="right">
+        <ul></ul>
+    </div>
+    <ul></ul>
+    <script>
+        var data = []
+        function getData() {
+            var getInfo = new XMLHttpRequest()
+            getInfo.onreadystatechange = function () {
+                if (getInfo.readyState == 4 && getInfo.status == 200) {
+                      console.log(JSON.parse(getInfo.response));
+                    data = JSON.parse(getInfo.response)
+                    displayseriesNames(data)
+                }
+            }
+            getInfo.open("GET", "https://cricket-live-score4.p.rapidapi.com/apis/series");
+            getInfo.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            getInfo.setRequestHeader("X-RapidAPI-Host", "cricket-live-score4.p.rapidapi.com")
+            getInfo.send();
+        }
+        function displayseriesNames(data) {
+            console.log(data)
+            data.data.completed.forEach((series) => {
+                var myLi = document.createElement("li")
+                myLi.innerHTML = series.series_name
+                document.querySelector("ul").appendChild(myLi)
+            })
+
+        }
+
+
+        //  promise
+
+        // var users = []
+        // function getcurrentData() {
+        //     return new Promise((resolve, reject) => {
+        //         var getCurrent = new XMLHttpRequest()
+        //         getCurrent.onreadystatechange = function () {
+        //             if (getCurrent.readyState == 4 && getCurrent.status == 200) {
+        //                 users = JSON.parse(getCurrent.response)
+        //                 // console,log(getCurrent)
+        //                 resolve(users)
+        //             }
+        //         }
+        //         getCurrent.open("GET", "https://cricket-live-score4.p.rapidapi.com/apis/series")
+        //         getCurrent.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+        //         getCurrent.setRequestHeader("X-RapidAPI-Host", "cricket-live-score4.p.rapidapi.com")
+        //         getCurrent.send()
+        //     });
+        // }
+
+        // getcurrentData().then((users) => {
+        //     users.data.current.forEach((series) => {
+        //         // console.log(getcurrentData)
+        //         var myLi = document.createElement("li")
+        //         myLi.innerHTML = series.series_name
+        //         document.querySelector("ul").appendChild(myLi)
+        //     })
+        // })
+
+
+
+            //   asyncand await
+
+
+        //     function upcoming(){
+        //         return new Promise((resolve,reject)=>{
+        //             var userData=new XMLHttpRequest()
+        //             userData.onreadystatechange=function(){
+        //                 if(userData.readyState==4&&userData.status==200){
+        //                     user=JSON.parse(userData.response)
+        //                     resolve(user)
+        //                 }
+        //             }
+        //             userData.open("GET","https://cricket-live-score4.p.rapidapi.com/apis/series")
+        //             userData.setRequestHeader("X-RapidAPI-Key","1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+        //             userData.setRequestHeader("X-RapidAPI-Host","cricket-live-score4.p.rapidapi.com")
+        //             userData.send()
+        //         })
+        //     }
+        //    async function upcomingasyncdata(){
+        //     user=await upcoming(user)
+        //     user.data.upcoming.forEach((series)=>{
+        //         var myLi = document.createElement("li")
+        //         myLi.innerHTML = series.series_name
+        //         document.querySelector("ul").appendChild(myLi)
+        //     })
+
+        //    }
+        //    upcoming()
+
+        
+    </script>
+</body>
+
+</html>

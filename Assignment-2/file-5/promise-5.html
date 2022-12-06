@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise-5</title>
+</head>
+
+<body>
+    <ul></ul>
+    <script>
+        function getData() {
+            return new Promise((resolve, reject) => {
+                var user = new XMLHttpRequest()
+                user.onreadystatechange = function () {
+                    if (user.readyState === 4 && user.status == 200) {
+                        persion = JSON.parse(user.response)
+                        resolve(persion)
+                        console.log(persion)
+                    }
+                }
+                user.open("GET", "https://cricket-live-scores4.p.rapidapi.com/api")
+                user.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+                user.setRequestHeader("X-RapidAPI-Host", "cricket-live-scores4.p.rapidapi.com")
+                user.send();
+
+            });
+        }
+        getData().then((persion)=>{
+            console.log(persion)
+            for(a in persion){
+                var myLi=document.createElement("li")
+                myLi.innerHTML=(a+" : "+persion[a])
+                document.querySelector("ul").appendChild(myLi)
+            }
+        })
+    </script>
+</body>
+
+</html>

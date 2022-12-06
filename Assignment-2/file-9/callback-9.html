@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback-9</title>
+</head>
+
+<body>
+    <button onclick="updateData()">get Data</button>
+    <ul></ul>
+    <script>
+        var date = []
+        function updateData() {
+            var player = new XMLHttpRequest()
+            player.onreadystatechange = function () {
+                if (player.readyState == 4 && player.status == 200) {
+                    data = JSON.parse(player.response)
+                    console.log(data)
+                    displaydata(data)
+                }
+            }
+            player.open("GET", "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent")
+            player.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            player.setRequestHeader("X-RapidAPI-Host", "cricbuzz-cricket.p.rapidapi.com")
+            player.send();
+        }
+        function displaydata(data) {
+
+            console.log(data.appIndex.seoTitle)
+            // data.appIndex.forEach((element) => {
+            //     console.log(element)
+            // });
+            for (a in data) {
+                if (a == "appIndex") {
+                    console.log(data[a])
+                    for (b in data[a]) {
+                        if (b == "seoTitle") {
+                            console.log(data[a][b])
+                            var myLi = document.createElement("li")
+                            myLi.innerHTML = (b + " : " + data[a][b])
+                            document.querySelector("ul").appendChild(myLi)
+                        }
+                    }
+                }
+            }
+            // for(b in data[a]){
+            // console.log(data[a])
+            //         if(a!==data[a]){
+            //    for(b in data[a]){
+            // var myLi = document.createElement("li")
+            // myLi.innerHTML = data[a].appIndex
+            // document.querySelector("ul").appendChild(myLi)
+
+            //    }
+            // }
+
+            // }
+            // data.appIndex.forEach((element) => {
+            //     console.log(element)
+            // });
+        }
+
+    </script>
+
+</body>
+
+</html>

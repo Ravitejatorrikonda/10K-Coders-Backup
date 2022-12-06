@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-6</title>
+</head>
+
+<body>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th colspan="5">Address</th>
+                <th rowspan="2">ID</th>
+                <th rowspan="2">Email</th>
+                <th rowspan="2">Username</th>
+                <th rowspan="2">Password</th>
+                <th rowspan="1" colspan="2">Name</th>
+                <th rowspan="2">Phone</th>
+                <th rowspan="2">Edit</th>
+                <th rowspan="2">Delete</th>
+
+            </tr>
+            <tr>
+                <th>Geoloation</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>Number</th>
+                <th>Zip Code</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="data.js"></script>
+    <script>
+        var filterusers = [];
+        function displayusers(person) {
+            document.querySelector("tbody").innerHTML="";
+            // console.log(person)
+            person.forEach((data, i) => {
+                console.log(data)
+                var myTr = document.createElement("tr")
+                for (a in data) {
+
+                    if (a == "address") {
+                        var addressobj = data[a]
+                        for (b in addressobj) {
+                            var mytd = document.createElement("td")
+                            if (b !== "geolocation") {
+
+                                mytd.innerHTML = addressobj[b];
+                                myTr.appendChild(mytd)
+                            } else if (b == "geolocation") {
+                                var results = ""
+                                for (c in addressobj[b]) {
+                                    results += c + " : " + addressobj[b][c] + "<br>"
+                                }
+                                mytd.innerHTML = results
+                                myTr.appendChild(mytd)
+                            }
+
+                        }
+                    } else if (a == "name") {
+                        for (n in data[a]) {
+                            var mytd = document.createElement("td")
+                            mytd.innerHTML = data[a][n]
+                            myTr.appendChild(mytd)
+                        }
+                    }
+                    else if (a !== '__v') {
+                        var mytd = document.createElement("td")
+                        mytd.innerHTML = data[a]
+                        myTr.appendChild(mytd)
+                    }
+
+
+                }
+
+
+                var edittd = document.createElement("td")
+                var mybtn = document.createElement("button")
+                mybtn.innerHTML = "EDIT"
+                edittd.appendChild(mybtn)
+                myTr.appendChild(edittd)
+
+
+                var deletetd=document.createElement("td")
+                var delbtn = document.createElement("button")
+                delbtn.setAttribute("onclick","deleteuser(" + i + ")")  
+                delbtn.innerHTML = "DELETE"
+                deletetd.appendChild(delbtn)
+                myTr.appendChild(deletetd)
+                document.querySelector("tbody").appendChild(myTr)
+            });
+        }
+        function deleteuser(i) {
+            if (filterusers.length == 0) {
+                filterusers = person.filter((user, index) => {
+                    return user.id !== person[i].id;
+                });
+            } else {
+                filterusers=filterusers.filter((user, index) => {
+                    return user.id !== filterusers[i].id;
+                });
+            }
+            displayusers(filterusers);
+
+        }
+        displayusers(person);
+        
+    </script>
+</body>
+
+</html>

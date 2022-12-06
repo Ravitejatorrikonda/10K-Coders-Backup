@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async-await-8</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+         function playerData() {
+            return new Promise((resolve, reject) => {
+                var player = new XMLHttpRequest()
+                player.onreadystatechange = function () {
+                    if (player.readyState == 4 && player.status == 200) {
+                        user = JSON.parse(player.response)
+                        //  console.log(user)
+                    resolve(user)
+                    }
+                }
+
+
+                player.open("GET", "https://cricket-news-api.p.rapidapi.com/cricnews/cricbuzz")
+                player.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+                player.setRequestHeader("X-RapidAPI-Host", "cricket-news-api.p.rapidapi.com")
+                player.send();
+            });
+
+        }
+        async function displayPlayerData(){
+            user=await playerData() 
+            console.log(user)
+            for(a in user){
+                console.log(a+" : "+user[a].title)
+                var myLi=document.createElement("li")
+                    myLi.innerHTML=a+" : "+user[a].title
+                    document.querySelector("ul").appendChild(myLi)
+
+            }
+        }
+        displayPlayerData()
+
+    </script>
+    
+</body>
+</html>

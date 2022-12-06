@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-2</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>fname</th>
+                <th>lname</th>
+                <th>tel</th>
+                <th>address</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var user2 = [
+            {
+                "fname": "Susi",
+                "lname": "Klepsteen",
+                "tel": "(783)437-0894",
+                "address": "7349 In Ln",
+                "city": "Eastvale",
+                "state": "OR",
+                "zip": 65880
+            },
+            {
+                "fname": "Chandra",
+                "lname": "Labrucherie",
+                "tel": "(709)662-8935",
+                "address": "1975 Magna Ave",
+                "city": "Bridgeport",
+                "state": "IA",
+                "zip": 89198
+            },
+            {
+                "fname": "William",
+                "lname": "Santos",
+                "tel": "(491)578-6284",
+                "address": "3062 Ante Ave",
+                "city": "Bellefontaine",
+                "state": "AR",
+                "zip": 46076
+            },
+            {
+                "fname": "Bradley",
+                "lname": "Khan",
+                "tel": "(944)567-0644",
+                "address": "2142 Libero Ct",
+                "city": "Rural",
+                "state": "IN",
+                "zip": 18285
+            },
+            {
+                "fname": "Ophelia",
+                "lname": "Crewell",
+                "tel": "(120)905-7277",
+                "address": "5452 Scelerisque Ave",
+                "city": "West Chester",
+                "state": "NC",
+                "zip": 84322
+            },
+            {
+                "fname": "Lowell",
+                "lname": "Olson",
+                "tel": "(392)087-4576",
+                "address": "2164 Dolor Ln",
+                "city": "Catlettsburg",
+                "state": "CA",
+                "zip": 52338
+            },
+            {
+                "fname": "Samantha",
+                "lname": "Pierce",
+                "tel": "(222)951-5339",
+                "address": "5311 Sed Ln",
+                "city": "Curtis Bay",
+                "state": "NY",
+                "zip": 79396
+            },
+            {
+                "fname": "Maki",
+                "lname": "Arnold",
+                "tel": "(166)069-4078",
+                "address": "8015 Risus St",
+                "city": "Lake Crystal",
+                "state": "MS",
+                "zip": 48282
+            },
+            {
+                "fname": "Kavita",
+                "lname": "Case",
+                "tel": "(430)464-7833",
+                "address": "2577 Dolor Ave",
+                "city": "Fargo",
+                "state": "MN",
+                "zip": 57009
+            },
+            {
+                "fname": "Austin",
+                "lname": "Bamommy",
+                "tel": "(149)717-6484",
+                "address": "6569 Sollicitudin St",
+                "city": "Fayetteville",
+                "state": "CO",
+                "zip": 33515
+            }
+        ];
+        var filterusers=[];
+        function displayusers(user2){
+            document.querySelector("tbody").innerHTML="";
+            
+        user2.forEach((data,i)=>{
+            var myTr=document.createElement("tr")
+            for(a in data){
+                var myTd=document.createElement("td")
+                myTd.innerHTML=data[a]
+                myTr.appendChild(myTd)  
+            }
+            var delTd=document.createElement("td")
+            var delbtn=document.createElement("button")
+            delbtn.setAttribute("onclick","deleteuser("+i+")")
+            delbtn.innerHTML="Delete"
+            delTd.appendChild(delbtn)
+            myTr.appendChild(delTd)
+            document.querySelector("tbody").appendChild(myTr)
+        });
+    }
+    function deleteuser(i){
+        if(filterusers.length==0){
+            filterusers=user2.filter((value,index)=>{
+                return value.fname!==user2[i].fname;
+            });
+        } else{
+            filterusers=filterusers.filter((value,index)=>{
+                return value.fname!==filterusers[i].fname
+            });
+        }
+        displayusers(filterusers)
+    }
+    displayusers(user2)
+
+
+        // user2.forEach((players) => {
+        //     var myTr = document.createElement("tr")
+
+
+
+        //     var td1 = document.createElement("td")
+        //     td1.innerHTML = players.fname
+        //     myTr.appendChild(td1)
+
+
+        //    var td2=document.createElement("td")
+        //    td2.innerHTML=players.lname
+        //    myTr.appendChild(td2)
+
+        //    var td3=document.createElement("td")
+        //        td3.innerHTML=players.tel
+        //        myTr.appendChild(td3)
+
+        //        var td4=document.createElement("td")
+        //        td4.innerHTML=players.address
+        //        myTr.appendChild(td4)
+
+        //        var td5=document.createElement("td")
+        //        td5.innerHTML=players.city
+        //        myTr.appendChild(td5)
+
+        //        var td6=document.createElement("td")
+        //        td6.innerHTML=players.state
+        //        myTr.appendChild(td6)
+               
+        //        var td7=document.createElement("td")
+        //        td7.innerHTML=players.zip
+        //        myTr.appendChild(td7)
+
+        //     document.querySelector("tbody").appendChild(myTr)
+        // })
+
+    </script>
+</body>
+
+</html>

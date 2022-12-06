@@ -15,7 +15,7 @@
                 name: "Rahul",
                 runs: 50,
                 fours: 0,
-                sixes: 4,
+                sixes: 6,
                 SR: 156.33
             },
 
@@ -82,10 +82,12 @@
         var totalsixes = indiaplayers.reduce((r, g) => {
             if (r.sixes ==0) {
                 return r.sixes + g.sixes
-            } else if(r.sixes) {
+             } 
+            else if(r.sixes) {
 
-                return r.sixes+ g.sixes
-            }else{
+                  return r.sixes+ g.sixes
+            }
+            else{
                 return r+g.sixes
             }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation-form-1</title>
+    <style>
+        p{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="left">
+            <form action="">
+                <label for="fname"> First Name :</label>
+                <input type="text" name="" id="fname" onkeyup="createUserinput()"><br>
+                <p style="color:red ;">Enter Maximum 7 characters</p>
+                <button onclick="addUser()" type="button" disabled>Add User</button>
+            </form>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+    <script>
+        function createUserinput(){
+            // console.log("createUserinput()");
+            var UserInput=document.getElementById("fname").value
+            console.log(UserInput)
+            if(UserInput.length>=7){
+                document.querySelector("button").removeAttribute("disabled")
+                document.querySelector("p").style.display="none";
+            }else{
+                document.querySelector("p").style.display="block";
+                document.querySelector("button").setAttribute("disabled",true)
+            }
+            console.log()
+        }
+    </script>
+</body>
+</html>

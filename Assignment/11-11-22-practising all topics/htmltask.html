@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        label {
+            width: 100px;
+            display: inline-block;
+            margin: 10px;
+
+        }
+
+        input {
+            width: 200px;
+            border: 2px solid silver;
+            border-radius:3% ;
+
+        }
+        /* textarea{
+            border:2px solid red;
+            border-radius: 20px;
+        } */
+
+        button {
+            margin-left: 261px;
+            width: 70px;
+            margin-top: 10px;
+            border: 1px solid rgb(143, 137, 137);
+            border-radius: 10% 10% 10% 10%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form">
+        <form action="">
+            <label for="firstname">Name</label>
+            <input type="text" name="name" id="firstname" placeholder="First name"><br>
+            <input type="text" name="name" id="firstname" placeholder="Second name" style="margin-left:125px;"><br>
+            <label for="emailaddress">E-mail</label>
+            <input type="email" name="email" id="emailaddress"><br>
+            <label for="message">Message</label>
+             <input type="text" name="message" id="message" style="padding-bottom: 100px;"><br>
+             <!-- <textarea name="message" id="messagetext" cols="30" rows="10">type here</textarea><br>  -->
+            <button type="send" value="send">send</button>
+        </form>
+    </div>
+</body>
+
+</html>

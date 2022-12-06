@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback-6</title>
+</head>
+<body>
+    <button onclick="allUsers()">get User</button>
+    <ul></ul>
+    <script>
+        var persion=[]
+        function allUsers(){
+            var myData=new XMLHttpRequest()
+            myData.onreadystatechange=function(){
+                if(myData.readyState==4&&myData.status==200){
+                     persion=JSON.parse(myData.response)
+                    //  console.log(persion);
+                     displayallusers(persion)
+                }
+            }
+            myData.open("GET","https://allsportsapi2.p.rapidapi.com/api/basketball/category/264/events/17/11/2022")
+            myData.setRequestHeader("X-RapidAPI-Key","1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            myData.setRequestHeader("X-RapidAPI-Host","allsportsapi2.p.rapidapi.com")
+            myData.send();
+        }
+        function displayallusers(persion){
+        // console.log(persion)
+            persion.events.forEach((element) => {
+                //    console.log(element)
+                   for(a in element){
+                    // console.log(a)
+                     if(a=="awayTeam"){
+                        for(b in element[a]){
+                            // console.log(b,":",element[a][b])
+                        if(b=="name"){
+                            console.log(b," : ",element[a][b])
+                            var myLi=document.createElement("li")
+                            myLi.innerHTML=(b+" : "+element[a][b])
+                            document.querySelector("ul").appendChild(myLi)
+                        }
+                           
+                        }
+                     }
+                   }
+                });
+        }
+
+
+
+                //    if(element){
+                //    for(a in element){
+                //     console.log(element[a])
+                //    }
+                // }
+                //    element.awayTeam.name.forEach((player)=>{
+                //     console.log(player)
+                //    })
+            //    console.log(element)
+                // for(a in element){
+                //     // console.log(element[a])
+                //     if(a==element[a]){
+                //         for(b in element[a]){
+                //             console.log(element[a][b].current)
+                //         }
+                //     }
+                    // for(b in element[a]){
+                    //     if(b==awayTeam){
+                    //         console.log(element[a][b])
+                    //     }
+                    // }
+                   
+                // }
+        
+    </script>
+    
+</body>
+</html>

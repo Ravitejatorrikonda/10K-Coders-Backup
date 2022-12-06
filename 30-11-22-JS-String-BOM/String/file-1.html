@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+    <script>
+        var welcomeMessage="this is Raviteja from ktrenipadu.Raviteja is a unique and handsomeboy "
+        console.log(welcomeMessage.length);
+        console.log(welcomeMessage.split(" "))   //converting arrey split(" ")
+        console.log(welcomeMessage.split(" ").join(" "))   //join(" ") is a arrey related function
+        console.log(welcomeMessage.split(" ").reverse().join(" "))   //reverse()is a reversing tha character
+        console.log(welcomeMessage.indexOf("Raviteja"))
+        console.log(welcomeMessage.lastIndexOf("Raviteja"))
+
+
+        var dotIndex=welcomeMessage.indexOf(".")
+        console.log(welcomeMessage.substring(dotIndex+1))    //this is a based on indexvalue
+        console.log(welcomeMessage.substr(dotIndex+1,20))   //this is a indexvalue and character value
+        console.log(welcomeMessage.slice(dotIndex+1))       // this is similar to substring
+    </script>
+</body>
+</html>

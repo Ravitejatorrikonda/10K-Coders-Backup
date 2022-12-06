@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table-5</title>
+</head>
+<style>
+    /* table,
+    th,
+    td {
+        border: 2px solid black;
+    } */
+</style>
+
+<body>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User Id</th>
+                <th>Date</th>
+                <th>products</th>
+                <th>__v</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="data.js"></script>
+    <script>
+        var filterusers = [];
+        function displayusers(cards) {
+            document.querySelector("tbody").innerHTML = "";
+            // console.log(cards)
+            cards.forEach((persion, i) => {
+                console.log(persion)
+                var myTr = document.createElement("tr")
+                for (a in persion) {
+                    var myTd = document.createElement("td");
+                    if (a !== "products") {
+                        myTd.innerHTML = persion[a];
+                        myTr.appendChild(myTd)
+                    } else if (a == "products") {
+                        var newtable = document.createElement("table")
+                        persion[a].forEach((items) => {
+                            console.log(items);
+                            var myTr2 = document.createElement("tr")
+                            for (c in items) {
+                                var mytd2 = document.createElement("td")
+                                mytd2.innerHTML = c + " : " + items[c]
+                                myTr2.appendChild(mytd2)
+                            }
+
+                            newtable.appendChild(myTr2)
+                        });
+                        myTd.appendChild(newtable)
+                        myTr.appendChild(myTd)
+
+                    }
+
+
+                }
+                var delTd = document.createElement("td")
+                var delbtn = document.createElement("button")
+                delbtn.setAttribute = ("onclick", "deleteuser(" + i + ")")
+                delbtn.innerHTML = "DELETE"
+                delTd.appendChild(delbtn)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr);
+            });
+        }
+        function deleteuser(i) {
+            if (filterusers.length == 0) {
+                filterusers = cards.filter((user, index) => {
+                    return user.id !== cards[i].id;
+                });
+            } else {
+                filterusers = filterusers.filter((user, index) => {
+                    return user.id !== filterusers[i].id;
+                });
+            }
+            displayusers(filterusers);
+        }
+        displayusers(cards);
+    </script>
+</body>
+
+</html>

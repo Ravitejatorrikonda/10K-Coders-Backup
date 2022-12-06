@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise-3</title>
+</head>
+
+<body>
+    <button onclick="getData()">get Data</button>
+    <ul></ul>
+    <script>
+        var entity = []
+        function getData() {
+            return new Promise((resolve, reject) => {
+                var users = new XMLHttpRequest()
+                users.onreadystatechange = function () {
+                    if (users.readyState == 4 && users.status == 200) {
+                        entity = JSON.parse(users.response)
+                        console.log(entity)
+                        resolve(entity)
+                    }
+                }
+
+
+                users.open("GET", "https://cricketapi21.p.rapidapi.com/api/cricket/search/kabul")
+                users.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+                users.setRequestHeader("X-RapidAPI-Host", "cricketapi21.p.rapidapi.com")
+                users.send();
+            });
+        }
+        getData().then((entity)=>{
+            console.log(entity.results[0].entity.name)
+            var myLi = document.createElement("li")
+                            myLi.innerHTML =entity.results[0].entity.name
+                            document.querySelector("ul").appendChild(myLi)
+        })
+    </script>
+</body>
+
+</html>

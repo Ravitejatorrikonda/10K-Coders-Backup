@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call back-2</title>
+</head>
+
+<body>
+    <button onclick="getData()">get Data</button>
+    <ul></ul>
+    <script>
+    var results=[]
+        function getData() {
+            var users = new XMLHttpRequest()
+            users.onreadystatechange = function () {
+                if (users.readyState == 4 && users.status == 200) {
+                    // console.log(JSON.parse(users.response))
+                    results=JSON.parse(users.response).results[0]
+                    displayusers(results)
+                }
+            }
+            users.open("GET", "https://cricket-live-data.p.rapidapi.com/series");
+            users.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e");
+            users.setRequestHeader("X-RapidAPI-Host", "cricket-live-data.p.rapidapi.com");
+            users.send();
+        }
+        function displayusers(results){
+            console.log(results)
+            results.series.forEach((element) => {
+                var myLi=document.createElement("li")
+                myLi.innerHTML=element.series_name
+                document.querySelector("ul").appendChild(myLi)
+            });
+        }
+    </script>
+</body>
+
+</html>

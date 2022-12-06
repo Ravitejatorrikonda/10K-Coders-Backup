@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-4</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 2px solid black;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">id</th>
+                <th rowspan="2">title</th>
+                <th rowspan="2">price</th>
+                <th rowspan="2">description</th>
+                <th rowspan="2">category</th>
+                <th rowspan="2">image</th>
+                <th colspan="2" rowspan="1">rating</th>
+                <th rowspan="2">Delete</th>
+            <tr>
+                <th>Rate</th>
+                <th>Count</th>
+            </tr>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="data.js"></script>
+    <script>
+        var filterusers = [];
+        function displayproducts(products) {
+            document.querySelector("tbody").innerHTML="";
+            products.forEach((ravi,i) => {
+                console.log(products)
+                var myTr = document.createElement("tr")
+                for (a in ravi) {
+                    var myTd = document.createElement("td")
+                    if (a !== "image" & a !== "rating") {
+                        myTd.innerHTML = ravi[a];
+                        myTr.appendChild(myTd);
+                    } else if (a == "image") {
+                        var myimg = document.createElement("img")
+                        myimg.setAttribute("src", ravi[a])
+                        myimg.style.width = "100px"
+                        myTd.appendChild(myimg)
+                        myTr.appendChild(myTd)
+
+                    } else if (a == "rating") {
+                        for (b in ravi[a]) {
+                            var Nth = document.createElement("td")
+                            Nth.innerHTML = ravi[a][b]
+                            myTr.appendChild(Nth);
+                        }
+                    }
+
+                }
+                var delTd = document.createElement("td")
+                var delbtn = document.createElement("button")
+                delbtn.innerHTML = "DELETE"
+                delbtn.setAttribute("onclick", "deleteuser(" + i + ")");
+                delTd.appendChild(delbtn)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            });
+
+        }
+        function deleteuser(i) {
+            if (filterusers.length == 0)  {
+                filterusers=products.filter((user,index)=>{
+                    return user.id !== products[i].id;
+                });
+            }else{
+                filterusers=filterusers.filter((user,index)=>{
+                    return  user.id !== filterusers[i].id;
+                });
+            }
+            displayproducts(filterusers)
+        }
+        displayproducts(products)
+
+    </script>
+    </table>
+</body>
+
+</html>

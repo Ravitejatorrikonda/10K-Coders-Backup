@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-1</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>first name</th>
+                <th>second name</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+
+        var username = [
+            {
+                "fname": "Wyatra",
+                "lname": "Oshins"
+            },
+            {
+                "fname": "Ricardo",
+                "lname": "Callahan"
+            },
+            {
+                "fname": "Rashad",
+                "lname": "Katz"
+            },
+            {
+                "fname": "Mutahir",
+                "lname": "Bert"
+            },
+            {
+                "fname": "Kavita",
+                "lname": "Hopper"
+            },
+            {
+                "fname": "Keefer",
+                "lname": "Bean"
+            },
+            {
+                "fname": "Nalika",
+                "lname": "Potate"
+            },
+            {
+                "fname": "Sonja",
+                "lname": "Romard"
+            },
+            {
+                "fname": "Toya",
+                "lname": "Willis"
+            },
+            {
+                "fname": "Timothy",
+                "lname": "Sapp"
+            }
+        ];
+
+
+
+        var filterusers = [];
+        function displayusers(username) {
+            document.querySelector("tbody").innerHTML = "";
+
+            username.forEach((first,i) => {
+                console.log(username)
+                var myTr = document.createElement("tr")
+                for (a in first) {
+                    var myTd = document.createElement("td")
+                    myTd.innerHTML = first[a]
+                    myTr.appendChild(myTd)
+                }
+                var delTd = document.createElement("td")
+                var delbtn = document.createElement("button")
+                delbtn.innerHTML = "Delete"
+                delbtn.setAttribute("onclick", "deleteuser(" + i + ")")
+                delTd.appendChild(delbtn)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            });
+        }
+        function deleteuser(i) {
+            if(filterusers.length==0){
+              filterusers=username.filter((user,index)=>{
+                return user.fname!==username[i].fname;
+              });
+            }else{
+                filterusers=filterusers.filter((user,index)=>{
+                    return user.fname!==filterusers[i].fname;
+                });
+            }
+                 displayusers(filterusers)
+        }
+        displayusers(username)
+
+
+    </script>
+
+</body>
+
+</html>

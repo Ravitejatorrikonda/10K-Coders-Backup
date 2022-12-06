@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample-2</title>
+    <style>
+        p{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="">First Name : </label>
+        <input type="text" id="fname" onkeyup="validateForm()"><br>
+        <p style="color:red ;">Enter minimum 4 characters</p><br>
+        <label>Second Name : </label>
+        <input type="text" id="lname" onkeydown="validateForm()"><br>
+        <p>Enter minimum 3 characters</p><br>
+        <button disabled>add user</button>
+    </form>
+    <script>
+        function validateForm(){
+            var user={
+                fname:"",
+                lname:"",
+            }
+            for(a in user){
+                user[a]=document.getElementById(a).value
+            }
+            var check=true
+            if(user.fname.length<4 || user.lname.length<3){
+                check=false
+            }
+            if(check){
+                document.querySelector("button").removeAttribute("disabled")
+                document.querySelector("p").style.display="none"
+            }else{
+                document.querySelector("button").setAttribute("disabled",true)
+                document.querySelector("p").style.display="block"
+        }
+    }
+    </script>
+</body>
+</html>

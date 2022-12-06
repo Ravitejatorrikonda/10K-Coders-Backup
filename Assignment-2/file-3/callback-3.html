@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback-3</title>
+</head>
+
+<body>
+    <button onclick="gatData()">get Data</button>
+    <ul></ul>
+    <script>
+        var entity = []
+        function gatData() {
+            var user = new XMLHttpRequest()
+            user.onreadystatechange = function () {
+                if (user.readyState == 4 && user.status == 200) {
+                    console.log(JSON.parse(user.response));
+                    entity = JSON.parse(user.response)
+                    displayusers(entity)
+                }
+            }
+            user.open("GET", "https://cricketapi21.p.rapidapi.com/api/cricket/search/kabul")
+            user.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            user.setRequestHeader("X-RapidAPI-Host", "cricketapi21.p.rapidapi.com")
+            user.send();
+        }
+
+
+        function displayusers(entity) {
+            // console.log(entity.results[0].entity.name)
+
+            entity.results.forEach((element) => {
+                console.log(element)
+                for (a in element) {
+                    console.log(element[a])
+                    for (b in element[a]) {
+                        if (b == "name") {
+                            console.log(element[a][b])
+                            var myLi = document.createElement("li")
+                            myLi.innerHTML = element[a][b]
+                            document.querySelector("ul").appendChild(myLi)
+                        }
+
+                    }
+                }
+
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

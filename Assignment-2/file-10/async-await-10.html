@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async-await-10</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+          function allBikes() {
+            return new Promise((resolve, reject) => {
+                var bikedata = new XMLHttpRequest()
+                bikedata.onreadystatechange = function () {
+                    if (bikedata.readyState == 4 && bikedata.status == 200) {
+                        data = JSON.parse(bikedata.response)
+                        resolve(data)
+                    }
+                }
+                bikedata.open("GET", "https://community-citybikes.p.rapidapi.com/valenbisi.json")
+                bikedata.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+                bikedata.setRequestHeader("X-RapidAPI-Host", "community-citybikes.p.rapidapi.com")
+                bikedata.send();
+            })
+        }
+        async function allBikesData(){
+            data=await allBikes()
+            console.log(data)
+            data.forEach((element) => {
+                for(a in element){
+                    // console.log(element[a])
+                    if(a=="lat"){
+                        console.log(a+" : "+element[a])
+                        var myLi=document.createElement("li")
+                        myLi.innerHTML=(a+" : "+element[a])
+                        document.querySelector("ul").appendChild(myLi)
+                    }
+                }
+            });
+        }
+        allBikesData()
+    </script>
+</body>
+</html>

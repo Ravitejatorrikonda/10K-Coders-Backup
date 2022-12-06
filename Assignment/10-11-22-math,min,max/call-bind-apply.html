@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call-blinnd-apply</title>
+</head>
+
+<body>
+    <script>
+        // call
+             var ravi = {
+             name: "raviteja",
+             secondname: "gayathri"
+         }
+         var karthik = {
+             name: "karthik",
+             secondname: "nikhilsai",
+             Number:1234567891
+         }
+         function fullname() {
+             console.log(this.name + " " + this.secondname)
+         }
+              fullname.call(ravi)
+          fullname.call(karthik)
+
+        // bind
+        var ravi1 = {
+            name: "raviteja",
+            secondname: "gayathri"
+        }
+        var karthik1 = {
+            name: "karthik",
+            secondname: "nikhilsai"
+        }
+        function fullname1() {
+            console.log(this.name + " " + this.secondname)
+
+        }
+        // var newfull = fullname1.bind(ravi1)
+        // var newfull1 = fullname1.bind(karthik1)
+        // newfull()
+        // newfull1()
+
+
+        // apply
+
+
+
+        // function fullname1(...ravi1) {
+        //     console.log(this.name + " " + this.secondname)
+        // console.log(ravi)
+        // console.log(ravi1)
+        //}
+
+        fullname1.apply(ravi1, ["ravi", "gayathri", "nikhilsai"])
+    </script>
+</body>
+
+</html>

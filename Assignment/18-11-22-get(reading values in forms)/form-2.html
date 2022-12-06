@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-2</title>
+    <style>
+        input{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="street">Street : </label>
+        <input type="text" name="" id="street"><br>
+        <input type="text" name="" id="street2"><br>
+        <label for=" city">City,state : </label>
+        <input type="text" name="" id="city">
+        <input type="text" name="" id="state"><br>
+        <label for="zip">Zip code : </label>
+        <input type="text" name="" id="Zipcode"><br>
+        <label for="countryv">Country</label>
+        <input type="text" name="" id="country"><br>
+        <button type="button" onclick="getuser()">Ok</button>
+        <button type="button">Cancel</button>
+
+
+    </form>
+    <script>
+        // seccoond method  for value "get" inn console
+        function getuser() {
+            var persion = {
+                street :"",
+                street2:"",
+                city:"",
+                state:"",
+                Zipcode:"",
+                country:"",
+            }
+            for(a in persion){
+                persion[a]=document.getElementById(a).value
+            }
+            console.log(persion);
+        }
+    </script>
+</body>
+
+</html>

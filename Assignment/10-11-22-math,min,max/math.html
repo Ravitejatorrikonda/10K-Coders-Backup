@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math</title>
+</head>
+
+<body>
+    <script>
+        
+        var randomnumbers = Math.random() * 100;
+        console.log("randomnumbers :" + randomnumbers)
+
+        // "round" this is roundfigure value on randomnumbers
+
+        console.log("roundvalue :   " + Math.round(randomnumbers));
+
+        // "floor" this can be used in find lowest number
+        console.log("lowest number :" + Math.floor(randomnumbers))
+
+        // "ceil" it is used to find highest number
+        console.log("highest number :" + Math.ceil(randomnumbers));
+
+
+        var randomnumbers = []
+        for(i=0;randomnumbers.length < 10;i++) {
+            var rNumbers = Math.round(Math.random() * 1000000);
+            if (String(rNumbers).length == 6) {
+                randomnumbers.push(rNumbers)
+            }
+        }
+        console.log(randomnumbers)
+        //  console.log("lowestnumber :"+Math.floor(randomnumbers))
+         
+         var randomnumbers1=[]
+         while(randomnumbers1<=10){
+           var rnumber1=Math.floor(Math.random()*1000000);
+           if(String(rnumber1).length==6){
+            randomnumbers1.push(rnumber1)
+           }
+         }
+         console.log(randomnumbers1)
+    </script>
+</body>
+
+</html>

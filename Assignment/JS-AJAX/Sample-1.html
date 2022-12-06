@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample-1</title>
+    <style>
+        .mydata {
+            float: left;
+        }
+
+        .left {
+            width: 40%;
+
+        }
+
+        .right {
+            width: 60%;
+
+
+
+        }
+
+        #updateBtn {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mydata left">
+        <form action="">
+            <label for="id">id</label>
+            <input type="text" name="" id="id" disabled><br>
+
+
+            <label for="name">Name : </label>
+            <input type="text" name="" id="name"><br>
+
+            <label for="username">Username : </label>
+            <input type="text" name="" id="username"><br>
+
+            <label for="email">Email : </label>
+            <input type="text" name="" id="email"><br>
+
+            <label for="phone">Phone : </label>
+            <input type="text" name="" id="phone"><br>
+
+            <label for="website">website : </label>
+            <input type="text" name="" id="website"><br>
+
+<input type="button" value="create data" id="createBtn" onclick="createUser()">
+<input type="button" value="update data" id="updateBtn" onclick="updateUser()">
+            <!-- <button id="createuserBtn" onclick="createUser()" type="button">Create</button> -->
+            <!-- <button id="updateuserBtn" onclick="updateUser()" type="button">Update user</button> -->
+
+        </form>
+    </div>
+    <!-- <button onclick="getDataFormserver()">getData</button>  -->
+    <div class="mydata right">
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>webesite</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script>
+        var local_api_url = "http://localhost:3000/users"
+        var users = [];
+
+        function getDataFormserver() {
+            console.log("getserver");
+            var getdata = new XMLHttpRequest();
+            console.log(getdata)
+            getdata.onreadystatechange = function () {
+                if (getdata.readyState == 4 && getdata.status == 200) {
+                    // console.log(getdata.response)
+                    users = JSON.parse(getdata.response)
+                     console.log(users);
+                    // console.log(users.length)
+                    displayusers(users);
+                }
+            }
+            // var api_url = "https://jsonplaceholder.typicode.com/users"
+            // var local_api_server = "http://localhost:3000/users"
+            getdata.open("GET", local_api_url)
+            getdata.send();
+        }
+        getDataFormserver();
+        // console.log(users)
+
+        function displayusers(users) {
+            document.querySelector("tbody").innerHTML = "";
+            users.forEach((user, i) => {
+                var myTr = document.createElement("tr")
+                for (a in user) {
+                    var myTd = document.createElement("td")
+                    if (a !== "address" && a !== "company") {
+                        myTd.innerHTML = user[a]
+                        myTr.appendChild(myTd)
+                    }
+                }
+
+
+
+                var editTd = document.createElement("td")
+                var editbtn = document.createElement("button")
+                editbtn.setAttribute("onclick", "edituser(" + i + ")");
+                editbtn.innerHTML = "EDIT";
+                editTd.appendChild(editbtn)
+                myTr.appendChild(editTd)
+
+
+
+                var delTd = document.createElement("td")
+                var delbtn = document.createElement("button")
+                delbtn.setAttribute("onclick", "deleteuser(" + i + ")")
+                delbtn.innerHTML = "DELETE"
+                delTd.appendChild(delbtn)
+                myTr.appendChild(delTd)
+
+
+                document.querySelector("tbody").appendChild(myTr)
+            });
+        }
+
+
+        function edituser(i) {
+            var userToBeEdit = users[i]
+            for (a in userToBeEdit) {
+                if (a !== "company" && a !== "address") {
+                    document.getElementById(a).value = userToBeEdit[a]
+                }
+            }
+           
+            swapBtn(true)
+
+        }
+        function swapBtn(val){
+            if(val){
+                document.getElementById("createBtn").style.display = "none";
+                document.getElementById("updateBtn").style.display = "block";
+            }
+            else{
+                document.getElementById("createBtn").style.display = "block";
+                document.getElementById("updateBtn").style.display = "none";
+            }
+        }
+        // function swapButtons(val) {
+        //      if (val) {
+        //         document.getElementById("createUserBtn").style.display = "none"
+        //         document.getElementById("updateUserBtn").style.display = "block"
+        //     } else {
+        //         document.getElementById("createUserBtn").style.display = "block"
+        //         document.getElementById("updateUserBtn").style.display = "none"
+        //     }
+        // }
+
+
+
+
+        function updateUser(){
+            var updateUserDetails=readvaluesFromForm()
+            var createUser = new XMLHttpRequest()
+            createUser.onreadystatechange = function () {
+                if (createUser.readyState == 4 && createUser.status == 200) {
+                    getDataFormserver()
+                }
+            }
+            createUser.open("PUT", local_api_url+"/"+updateUserDetails.id)
+            createUser.setRequestHeader("content-Type", "application/json")
+            createUser.send(JSON.stringify(updateUserDetails))
+            swapBtn(false)
+
+        }
+
+
+        function deleteuser(i) {
+            var deluser = new XMLHttpRequest();
+            deluser.onreadystatechange = function () {
+                if (deluser.readyState == 4 && deluser.status == 200) {
+
+                    getDataFormserver();
+                }
+            };
+            deluser.open("DELETE", local_api_url + "/" + users[i].id);
+            deluser.send();
+        }
+        function createUser() {
+            var newuser = readvaluesFromForm()
+            // console.lo(newuser)
+            var createUser = new XMLHttpRequest()
+            createUser.onreadystatechange = function () {
+                if (createUser.readyState == 4 && createUser.status == 201) {
+                    getDataFormserver()
+                }
+            }
+            createUser.open("POST", local_api_url)
+            createUser.setRequestHeader("content-Type", "application/json")
+            createUser.send(JSON.stringify(newuser))
+        }
+        function readvaluesFromForm() {
+            var user = {
+                id: "",
+                name: "",
+                username: "",
+                email: "",
+                phone: "",
+                website: "",
+            }
+            for (a in user) {
+                user[a] = document.getElementById(a).value
+            }
+            return user
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async-await-7</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+         function getAllData() {
+            return new Promise((resolve, reject) => {
+                var persion1 = new XMLHttpRequest()
+                persion1.onreadystatechange = function () {
+                    if (persion1.readyState == 4 && persion1.status == 200) {
+                        allData = JSON.parse(persion1.response)
+                        resolve(allData)
+                    }
+                }
+                persion1.open("GET", "https://live-cricket-exchange.p.rapidapi.com/events/cricket/inplay")
+                persion1.setRequestHeader("X-RapidAPI-Key", "1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+                persion1.setRequestHeader("X-RapidAPI-Host", "live-cricket-exchange.p.rapidapi.com")
+                persion1.send();
+            })
+        }
+        async function displayAllUsers(){
+            allData=await getAllData()
+            // console.log(allData)
+            for(a in allData){
+                console.log(allData[a].MatchId)
+                    var myLi=document.createElement("li")
+                    myLi.innerHTML=allData[a].MatchId
+                    document.querySelector("ul").appendChild(myLi)
+            }
+        }
+        displayAllUsers();
+    </script>
+    
+</body>
+</html>

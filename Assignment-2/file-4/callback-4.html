@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback-4</title>
+</head>
+
+<body>
+    <button onclick="getData()">get Data</button>
+    <ul></ul>
+    <script>
+        var data=[]
+        function getData() {
+            var user = new XMLHttpRequest()
+            user.onreadystatechange = function () {
+                if (user.readyState == 4 && user.status == 200){
+                 data=JSON.parse(user.response)
+                 console.log(data);
+                 displayusers(data)
+                }
+            }
+            user.open("GET","https://t20-cricket-news.p.rapidapi.com/news")
+            user.setRequestHeader("X-RapidAPI-Key","1b32c3b37fmsh869396a329e31bbp12c15djsn426915319b0e")
+            user.setRequestHeader("X-RapidAPI-Host","t20-cricket-news.p.rapidapi.com")
+            user.send();
+        }
+        function displayusers(data){
+            console.log(data[0].source)
+            for(a in data){
+                console.log(data[a].url)
+                var myLi=document.createElement("li")
+                myLi.innerHTML=data[a].url
+                document.querySelector("ul").appendChild(myLi)
+            }
+        }
+    </script>
+
+</body>
+
+</html>
