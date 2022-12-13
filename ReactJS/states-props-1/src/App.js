@@ -6,7 +6,8 @@ import './App.css';
 // import Employee2 from './EventsFunctions/Employee2';
 
 //  import Classparent from './Props1/Parent1';
-import Parent2 from './Props1/Parent2';
+// import Parent2 from './Props1/Parent2';
+import Parent3 from './Props1/Parent3';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       <Employee2/> */}
 
        {/* <Classparent/>  */}
-       <Parent2/>
+       {/* <Parent2/> */}
+       <Parent3/>
     </div>
   );
 }
