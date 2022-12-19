@@ -50,6 +50,7 @@ class User2 extends Component {
         var latestusers=[...this.state.allUsers]
         latestusers[this.state.editIndex]=this.state.persion
         this.setState({allUsers:latestusers,editIndex:null})
+        this.clearform()
     }
 
     render() {

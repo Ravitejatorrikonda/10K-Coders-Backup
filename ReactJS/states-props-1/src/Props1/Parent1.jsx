@@ -17,8 +17,8 @@ class Classparent extends Component{
     render(){
         return( 
         <div>
-        {/* <Headercom {...this.state}/> */}
-        <Headercom message={this.state.employee}/>
+        <Headercom {...this.state}/>
+        {/* <Headercom message={this.state.employee}/> */}
         </div>
         )
     }

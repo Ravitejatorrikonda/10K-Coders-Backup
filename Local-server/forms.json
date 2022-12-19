@@ -1,0 +1,153 @@
+{
+  "forms1": [
+    {
+      "id": 2,
+      "name": "Raviteja",
+      "username": "Nikhil",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "rfgrdf",
+      "confirmPassword": "erfgser",
+      "message": "fzgjhgfjhdsz"
+    },
+    {
+      "id": 3,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "hiuadsfahedf",
+      "confirmPassword": "kjhfdsvhszsg",
+      "message": "this is a welcome message"
+    },
+    {
+      "id": 4,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "Karthik@gmail.com",
+      "password": "3w45t5",
+      "confirmPassword": "224352",
+      "message": "fzgjhgfjhdsz"
+    },
+    {
+      "id": 5,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "message": ""
+    }
+  ],
+  "form2": [
+    {
+      "id": 1,
+      "username": "raviteja",
+      "password": "",
+      "emailaddress": "",
+      "gender": "",
+      "dob": "",
+      "height": ""
+    },
+    {
+      "id": 3,
+      "username": "Raviteja",
+      "password": "dhgxdg",
+      "emailaddress": "ravitejatorrikonda@gmail.com",
+      "gender": "Male",
+      "dob": "2022-12-05",
+      "height": "5"
+    }
+  ],
+  "Form3": [
+    {
+      "id": 1,
+      "univercity": "",
+      "institute": "zsfg",
+      "branch": "",
+      "degree": "",
+      "persuing1": "",
+      "avarageCpi": "",
+      "semister": "",
+      "experiance": "",
+      "blog": ""
+    },
+    {
+      "id": 2,
+      "univercity": "Raviteja",
+      "institute": "zsfg",
+      "branch": "Ece",
+      "degree": "B.com",
+      "persuing1": "persuing",
+      "avarageCpi": "3",
+      "semister": "3",
+      "experiance": "4",
+      "blog": "dgfgxtdhg"
+    }
+  ],
+  "form4": [
+    {
+      "id": 1,
+      "street": "last",
+      "city": "katrenipadu",
+      "State1": "",
+      "zipcode": "3453"
+    },
+    {
+      "id": 2,
+      "street": "Raviteja",
+      "city": "Katrenipadu",
+      "State1": "",
+      "zipcode": "7584962",
+      "country": "usa"
+    },
+    {
+      "id": 3,
+      "street": "Raviteja",
+      "city": "Katrenipadu",
+      "State1": "ap",
+      "zipcode": "3457934579",
+      "country": "India"
+    },
+    {
+      "id": 4,
+      "street": "Raviteja",
+      "city": "Katrenipadu",
+      "State1": "ap",
+      "zipcode": "465",
+      "country": "India"
+    }
+  ],
+  "form5": [
+    {
+      "id": 1,
+      "fname": "Raviteja",
+      "lname": "frdg",
+      "dob": "3",
+      "emailid": "ravitejatorrikonda@gmail.com",
+      "mobilenumber": "3"
+    },
+    {
+      "id": 2,
+      "fname": "Nikhil",
+      "lname": "sai",
+      "dob": "3",
+      "emailid": "nikhhil@gmail.com",
+      "mobilenumber": "345454565"
+    },
+    {
+      "id": 3,
+      "fname": "Karthik",
+      "lname": "sai",
+      "dob": "3",
+      "emailid": "karthik@gmail.com",
+      "mobilenumber": "4"
+    },
+    {
+      "id": 4,
+      "fname": "fgfg",
+      "lname": "frdg",
+      "dob": "",
+      "emailid": "",
+      "mobilenumber": ""
+    }
+  ]
+}
