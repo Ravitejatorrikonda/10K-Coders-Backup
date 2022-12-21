@@ -1,0 +1,205 @@
+{
+  "User1": [
+    {
+      "id": 1,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "message": ""
+    },
+    {
+      "id": 2,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "frghty",
+      "confirmPassword": "rtyhdr6",
+      "message": "fzgjhgfjhdsz"
+    },
+    {
+      "id": 3,
+      "name": "Raviteja",
+      "username": "raviteja",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "message": ""
+    },
+    {
+      "id": 4,
+      "name": "Raviteja",
+      "username": "",
+      "email": "ravitejatorrikonda@gmail.com",
+      "password": "",
+      "confirmPassword": "",
+      "message": ""
+    },
+    {
+      "id": 5,
+      "name": "",
+      "username": "",
+      "email": "",
+      "password": "",
+      "confirmPassword": "",
+      "message": "fzgjhgfjhdsz"
+    }
+  ],
+  "User2": [
+    {
+      "id": 1,
+      "username": "raviteja",
+      "password": "edrg",
+      "emailaddress": "ravitejatorrikonda@gmail.com",
+      "gender": "Male",
+      "dob": "2022-12-06",
+      "height": "3"
+    },
+    {
+      "id": 2,
+      "username": "nikhil",
+      "password": "dfgxr",
+      "emailaddress": "nikhil@gamil.com",
+      "gender": "Male",
+      "dob": "2022-12-05",
+      "height": "4"
+    },
+    {
+      "id": 3,
+      "username": "karthik",
+      "password": "gdhxth",
+      "emailaddress": "ravitejatorrikonda@gmail.com",
+      "gender": "Male",
+      "dob": "2022-12-05",
+      "height": "3"
+    },
+    {
+      "id": 4,
+      "username": "raviteja",
+      "password": "jhrhf",
+      "emailaddress": "ravitejatorrikonda@gmail.com",
+      "gender": "Male",
+      "dob": "2022-12-05",
+      "height": "3"
+    }
+  ],
+  "User3": [
+    {
+      "id": 1,
+      "univercity": "Raviteja",
+      "institute": "",
+      "branch": "Cse",
+      "degree": "B.sc",
+      "status": "completed",
+      "avarageCpi": "3",
+      "semister": "3",
+      "experiance": "3",
+      "blog": "dgfgxtdhg"
+    },
+    {
+      "id": 2,
+      "univercity": "Raviteja",
+      "institute": "zsfg",
+      "branch": "Ece",
+      "degree": "Bzc",
+      "status": "completed",
+      "avarageCpi": "4",
+      "semister": "3",
+      "experiance": "3",
+      "blog": "dgfgxtdhg"
+    },
+    {
+      "id": 3,
+      "univercity": "Raviteja",
+      "institute": "zsfg",
+      "branch": "EEE",
+      "degree": "B.com",
+      "status": "persuing",
+      "avarageCpi": "4",
+      "semister": "4",
+      "experiance": "3",
+      "blog": "tytdytr"
+    },
+    {
+      "id": 4,
+      "univercity": "Raviteja",
+      "institute": "",
+      "branch": "Mechanical",
+      "degree": "Bzc",
+      "status": "completed",
+      "avarageCpi": "4",
+      "semister": "3",
+      "experiance": "4",
+      "blog": "fxhrhhhhhht"
+    }
+  ],
+  "User4": [
+    {
+      "id": 1,
+      "street": "Raviteja",
+      "city": "",
+      "State1": "",
+      "zipcode": "",
+      "country": ""
+    },
+    {
+      "id": 2,
+      "street": "Raviteja",
+      "city": "Katrenipadu",
+      "State1": "",
+      "zipcode": "3457934579",
+      "country": "India"
+    },
+    {
+      "id": 3,
+      "street": "Raviteja",
+      "city": "janampeta",
+      "State1": "",
+      "zipcode": "847508743098",
+      "country": "India"
+    },
+    {
+      "id": 4,
+      "street": "Raviteja",
+      "city": "Katrenipadu",
+      "State1": "",
+      "zipcode": "7984385209",
+      "country": "India"
+    }
+  ],
+  "User5": [
+    {
+      "id": 1,
+      "fname": "Ravietja",
+      "lname": "teja",
+      "dob": "5",
+      "emailid": "ravitejatorrikonda@gmail.com",
+      "mobilenumber": "7075880446"
+    },
+    {
+      "id": 2,
+      "fname": "Nikhil",
+      "lname": "sai",
+      "dob": "4",
+      "emailid": "Nikhil@gmail.com",
+      "mobilenumber": "76345098740875"
+    },
+    {
+      "id": 3,
+      "fname": "Karthik",
+      "lname": "Karthik",
+      "dob": "7",
+      "emailid": "Karthik@gmail.com",
+      "mobilenumber": ""
+    },
+    {
+      "id": 4,
+      "fname": "Raviteja",
+      "lname": "Teja",
+      "dob": "3",
+      "emailid": "ravitejatorrikonda@gmail.com",
+      "mobilenumber": ""
+    }
+  ]
+}

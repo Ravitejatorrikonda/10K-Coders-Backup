@@ -13,7 +13,7 @@ class User3 extends Component {
                 height: "",
             },
             allUsers: [],
-            editIndex:null,
+            editIndex: null,
 
         }
     }
@@ -32,28 +32,28 @@ class User3 extends Component {
         // newAllUsers.push(this.state.persion)
         // this.setState({allUsers:newAllUsers})
     }
-    clearForm=()=>{
-        var newForm={
+    clearForm = () => {
+        var newForm = {
             username: "",
-                password: "",
-                emailaddress: "",
-                gender: "",
-                dob: "",
-                height: "",
+            password: "",
+            emailaddress: "",
+            gender: "",
+            dob: "",
+            height: "",
         }
-        this.setState({persion:newForm})
+        this.setState({ persion: newForm })
     }
-    Edituser=(val,i)=>{
-this.setState({persion:val,editIndex:i})
+    Edituser = (val, i) => {
+        this.setState({ persion: val, editIndex: i })
     }
-    delUser=(val,i)=>{
-var deleteUser=this.state.allUsers.filter((myval)=> myval.password!==val.password)
-this.setState({allUsers:deleteUser})
+    delUser = (val, i) => {
+        var deleteUser = this.state.allUsers.filter((myval) => myval.password !== val.password)
+        this.setState({ allUsers: deleteUser })
     }
-    updateUser=()=>{
-        var UpdateallUser=[...this.state.allUsers]
-        UpdateallUser[this.state.editIndex]=this.state.persion
-        this.setState({allUsers:UpdateallUser,editIndex:null})
+    updateUser = () => {
+        var UpdateallUser = [...this.state.allUsers]
+        UpdateallUser[this.state.editIndex] = this.state.persion
+        this.setState({ allUsers: UpdateallUser, editIndex: null })
         this.clearForm()
     }
     render() {
@@ -66,7 +66,7 @@ this.setState({allUsers:deleteUser})
                 <label htmlFor="">Emailaddress : </label>
                 <input type="email" name="emailaddress" value={this.state.persion.emailaddress} onChange={(e) => { this.handileChange(e) }} /><br />
                 <select name="gender" value={this.state.persion.gender} onChange={(e) => { this.handileChange(e) }}>
-                <option>Select</option>
+                    <option>Select</option>
                     <option>Male</option>
                     <option>Female</option>
                 </select><br />
@@ -74,9 +74,9 @@ this.setState({allUsers:deleteUser})
                 <input type="date" name="dob" value={this.state.persion.dob} onChange={(e) => { this.handileChange(e) }} /><br />
                 <label htmlFor="">Height : </label>
                 <input type="number" name="height" value={this.state.persion.height} onChange={(e) => { this.handileChange(e) }} /><br />
-                {this.state.editIndex!==null ? (<button type="button" className=" btn btn-primary" onClick={this.updateUser}>UpdateUser</button>
-                ):( 
-                <button type="button" className="btn btn-secondary" onClick={this.addUser}>AddUser</button>)}
+                {this.state.editIndex !== null ? (<button type="button" className=" btn btn-primary" onClick={this.updateUser}>UpdateUser</button>
+                ) : (
+                    <button type="button" className="btn btn-secondary" onClick={this.addUser}>AddUser</button>)}
 
                 {/* <button type="button" onClick={this.addUser}>AddUser</button> */}
 
@@ -104,10 +104,10 @@ this.setState({allUsers:deleteUser})
                             <td>{val.dob}</td>
                             <td>{val.height}</td>
                             <td>
-                                <button type="button" className="btn btn-warning" onClick={()=>{this.Edituser(val,i)}}>Edit</button>
+                                <button type="button" className="btn btn-warning" onClick={() => { this.Edituser(val, i) }}>Edit</button>
                             </td>
                             <td>
-                                <button type="button" className="btn btn-danger" onClick={()=>{this.delUser(val,i)}}>Delete</button>
+                                <button type="button" className="btn btn-danger" onClick={() => { this.delUser(val, i) }}>Delete</button>
                             </td>
                         </tr>
                     )}
