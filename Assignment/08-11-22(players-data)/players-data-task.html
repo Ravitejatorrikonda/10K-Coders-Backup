@@ -51,11 +51,18 @@
 
         // total runs
 
-        var totalruns = indiaplayers.reduce((r, g) => {
-            if (r.runs) {
-                return r.runs + g.runs
-            } else {
-                return r + g.runs
+        // var totalruns = indiaplayers.reduce((r, g) => {
+        //     if (r.runs) {
+        //         return r.runs + g.runs
+        //     } else {
+        //         return r + g.runs
+        //     }
+        // });
+        var totalNubers =indiaplayers.reduce((r,g)=>{
+            if(r.runs){
+                        return r.runs+g.runs
+            }else{
+                return r+g.runs
             }
         });
         document.write("total runs :" + totalruns + "<br>")
