@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
+import Login from './components/Login/Login';
 import Main from './components/Main';
 import { MyContextProvider } from './components/Mycontext';
 
@@ -12,6 +13,7 @@ function App() {
      <MyContextProvider value={Users}>
       <Main/>
      </MyContextProvider>
+     <Login />
     
     {/* <Main allUsers={Users}/> */}
     </div>

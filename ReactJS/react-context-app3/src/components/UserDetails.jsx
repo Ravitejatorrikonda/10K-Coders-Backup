@@ -19,7 +19,6 @@ const UserDetails = ({ allUsers }) => {
                     )}
                 </ul>
             )}
-         
            </MyContextConsumer>
           
 
