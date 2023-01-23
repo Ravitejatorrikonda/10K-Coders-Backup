@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container .form-input{
+  width:200px;
+  height: 100px;
+}
+.todo-box{
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.todo-box .content{
+  display: flex;
+}
+
+.todo-box .content p{
+  margin-top: -6px;
+  margin-left: 6px;
+}
+.todo-box span{
+  margin: 0 5px;
+}
+
+.todo-box .check{
+  margin-top: -20px;
+}
+.actions-box{
+  cursor: pointer;
+}
+.delete-all{
+  width: 30%;
+}
+.back-btn{
+  margin: 10px;
+  width: 30%;
+}
