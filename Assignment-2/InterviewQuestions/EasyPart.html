@@ -114,6 +114,36 @@ function data2() {
 
 }
 console.log(data2());
+//11.Create a function that returns an array of strings sorted by length in ascending order.
+// Example:
+// sortByLength(["a", "ccc", "dddd", "bb"]) ➞ ["a", "bb", "ccc", "dddd"
+function data3(){
+    var newPersion=["a","dddd","bb","ccc"]
+    newPersion.sort()
+    // newPersion.sort(reverse=True)
+    console.log(newPersion);
+  
+    
+}
+data3()
+
+// 12.Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
+function data4(){
+    var newdata=[[9,7,4],[3,4,3],[34,43,34]]
+    var a=Math.max(...newdata[0])
+    var b=Math.max(...newdata[1])
+    var c=Math.max(...newdata[2])
+    console.log([a,b,c]);
+}
+data4()
+//13.
+
+const x = "Hello";
+const y = "World";
+
+const result = parseInt(x) + parseInt(y);
+console.log(result, typeof result);
+
         
 
 
